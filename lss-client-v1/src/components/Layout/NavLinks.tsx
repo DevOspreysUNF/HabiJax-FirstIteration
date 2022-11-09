@@ -1,11 +1,15 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const NavLinks = () => {
+    const {pathname} = useLocation();
+    
     return(
         <>
-            <li><Link to="/">Home</Link></li>
-            <li><Link to="/questions">Questions</Link></li>
-            <li><Link to="/surveys">Surveys</Link></li>
+            <li className="navbarli"><Link to="/" className={(pathname === '/') ? 'navliactive' : 'navbarli'}>Home</Link></li>
+            <li className="navbarli"><Link to="/questions" className={(pathname === '/questions') ? 'navliactive' : 'navbarli'}>Questions</Link></li>
+            <li className="navbarli"><Link to="/surveys" className={(pathname === '/surveys') ? 'navliactive' : 'navbarli'}>Surveys</Link></li>
+            <li className="navbarli"><Link to="/admin" className={(pathname === '/admin') ? 'navliactive' : 'navbarli'}>Admin</Link></li>
+            <li className="navbarli"><Link to="/account" className={(pathname === '/account') ? 'navliactive' : 'navbarli'}>Account</Link></li>
         </>
     )
 }
