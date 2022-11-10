@@ -1,7 +1,7 @@
 import { useState } from "react";
 import reactLogo from "./assets/react.svg";
 import "./css/App.css";
-import ResponseView from "./components/responseView";
+import ResponseView from "./components/ResponseView";
 
 function App() {
 	const [count, setCount] = useState(0);
@@ -16,7 +16,7 @@ function App() {
 					<img src={reactLogo} className="logo react" alt="React logo" />
 				</a>
 			</div>
-			<h1>Vite + React</h1>
+			<h1>Vite + React!</h1>
 			<div className="card">
 				<button onClick={() => setCount((count) => count + 1)}>
 					Count is {count}

@@ -47,7 +47,7 @@ function ResponseView() {
 			</h1>
 			<ul>
 				{responseArray.map((value: any) => {
-					return <li>{value}</li>;
+					return <li key={value}>{value}</li>;
 				})}
 			</ul>
 		</>
