@@ -18,9 +18,10 @@ function App() {
       <Navbar />
       <main>
         <Routes>
-          <Route path="/" element={<Login />} />
+          <Route path="/" element={<Home />} />
           <Route path="/surveys" element={<SurveyList />} />
           <Route path="/questions" element={<InputQuestion />} />
+          <Route path="/account" element={<Login />} />
           <Route path="/admin" element={<AdminAccount />} />
         </Routes>
       </main>
