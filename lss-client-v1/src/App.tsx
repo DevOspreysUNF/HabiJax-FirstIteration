@@ -1,33 +1,29 @@
 import { useState } from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Footer from "./components/Layout/Footer";
+import Navbar from "./components/Layout/Navbar";
+import Home from "./components/Home";
+import InputQuestion from "./components/InputQuestion";
 
 import "./css/App.css";
+import SurveyList from "./components/Surveys/SurveyList";
 
 function App() {
-	const submitHandler = (e: any) => {
-		e.preventDefault();
-		alert("Admin Account created!");
-	};
 
-	return (
-		<div className="App">
-			<h1>HabiJax Admin Dashboard </h1>
-			<br />
-			<h2>Create Admin Account</h2>
-			<form onSubmit={submitHandler}>
-				Username:
-				<input type="text" placeholder="Username" required />
-				<div className="col-md-6">
-					Password:
-					<input type="password" placeholder="Passw ord" required />
-				</div>
-				<div>
-					Confirm Password:
-					<input type="password" placeholder="Confirm Password" required />
-				</div>
-				<button type="submit">Submit</button>
-			</form>
-		</div>
-	);
+  return (
+    <div className="App">
+      <Navbar />
+      <main>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/surveys" element={<SurveyList />} />
+          <Route path="/questions" element={<InputQuestion />} />
+        </Routes>
+      </main>
+			<Footer />
+      
+    </div>
+  );
 }
 
 export default App;
