@@ -1,5 +1,4 @@
 import { useState } from "react";
-import LoginForm from "./components/LoginForm";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Footer from "./components/Layout/Footer";
 import Navbar from "./components/Layout/Navbar";
@@ -9,6 +8,7 @@ import "./css/App.css";
 import SurveyList from "./components/Surveys/SurveyList";
 import ResponseView from "./components/ResponseView";
 import SurveyDashboard from "./components/SurveyDashboard";
+import Login from "./components/Login";
 
 function App() {
 
@@ -21,6 +21,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/surveys" element={<SurveyList />} />
           <Route path="/questions" element={<InputQuestion />} />
+          <Route path="/account" element={<Login />} />
         </Routes>
       </main>
 			<Footer />

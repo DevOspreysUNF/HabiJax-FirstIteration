@@ -1,6 +1,5 @@
 import { useState } from "react";
 import LoginForm from "./LoginForm";
-import "./css/App.css";
 
 function Login() {
   const adminLogin = {
