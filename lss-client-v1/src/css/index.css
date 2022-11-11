@@ -56,11 +56,6 @@ h1 {
   font-size: 2.0rem;
 }
 
-.navbarLinks {
-  /* display: flex; */
-  /* align-items: center; */
-}
-
 button {
   border-radius: 8px;
   border: 1px solid var(--light-grey);
@@ -105,6 +100,16 @@ footer {
   border: 1px solid var(--very-light-grey);
 }
 
+.surveycard {
+  display: inline-block;
+  border: 1px solid var(--light-grey);
+  border-radius: 6px;
+  padding: 10px 20px;
+  width: 500px;
+  margin: 30px;
+  /* background-color:#00b4ef; */
+}
+
 .brand {
   display: inline;
 }
@@ -126,7 +131,7 @@ footer {
   padding: 26px 20px;
 }
 .navbarli > a:hover {
-  color: var(--light-blue);
+  color: var(--dark-blue);
   background-color: var(--very-light-grey);
 }
 .navliactive {
