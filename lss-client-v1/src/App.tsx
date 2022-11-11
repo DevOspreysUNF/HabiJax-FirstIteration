@@ -7,6 +7,8 @@ import InputQuestion from "./components/InputQuestion";
 
 import "./css/App.css";
 import SurveyList from "./components/Surveys/SurveyList";
+import ResponseView from "./components/ResponseView";
+import SurveyDashboard from "./components/SurveyDashboard";
 
 function App() {
 
