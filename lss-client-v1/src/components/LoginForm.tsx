@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function LoginForm({ Login, error }) {
+function LoginForm({ Login, error }: { Login: any; error: any }) {
   const [details, setDetails] = useState({ username: "", password: "" });
   const submitHandler = (e: any) => {
     e.preventDefault();
