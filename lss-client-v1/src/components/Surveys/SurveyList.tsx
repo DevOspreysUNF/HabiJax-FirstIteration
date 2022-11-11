@@ -1,4 +1,5 @@
 import react, { useState, useEffect } from 'react';
+import SurveyCard from './SurveyCard';
 
 const SurveyList = () => {
     const [survey, setSurvey] = useState([]);
@@ -18,7 +19,7 @@ const SurveyList = () => {
                     "X-API-TOKEN": "aMCZkoJ23O0fcIAcLmkWITxXdxJqItLxeDIVRKKP"
                 }
             })
-            
+
             // if(!response.ok) {
             //     throw new Error(`HTTP error! status: ${response.status}`);
             // }
@@ -36,9 +37,12 @@ const SurveyList = () => {
             <button>+ Create New Survey</button>
             <ul>
                 {survey.map((data:any) => { // :any temporary fix
-                    return(<li key={data.id}>{data.name}</li>)
+                    return(<li key={data.id}>{data.name}
+                    <SurveyCard name={data.name} /></li>)
                 })}
+                
             </ul>
+            
         </>
     );
 }
