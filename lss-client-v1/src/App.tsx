@@ -9,6 +9,7 @@ import SurveyList from "./components/Surveys/SurveyList";
 import ResponseView from "./components/ResponseView";
 import SurveyDashboard from "./components/SurveyDashboard";
 import Login from "./components/Login";
+import SurveyDetail from "./components/Surveys/SurveyDetail";
 
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
           <Route path="/surveys" element={<SurveyList />} />
           <Route path="/questions" element={<InputQuestion />} />
           <Route path="/account" element={<Login />} />
+          <Route path="/survey-detail" element={<SurveyDetail />} />
         </Routes>
       </main>
 			<Footer />
