@@ -15,20 +15,19 @@ const SurveyList = () => {
             "method": "GET",
                 "headers": {
                     "Content-Type": "application/json",
-                    "X-API-TOKEN": "PUT-YOUR-TOKEN-HERE"
+                    "X-API-TOKEN": "aMCZkoJ23O0fcIAcLmkWITxXdxJqItLxeDIVRKKP"
                 }
             })
-        // if(!response.ok) {
-        //     throw new Error(`HTTP error! status: ${response.status}`);
-        // }
+            
+            // if(!response.ok) {
+            //     throw new Error(`HTTP error! status: ${response.status}`);
+            // }
 
-        setSurvey(await response.json().then(json => json.result.elements));
+            setSurvey(await response.json().then(json => json.result.elements));
 
         } catch(error) {
             console.error();
         }
-        
-        
     }
 
     return(
