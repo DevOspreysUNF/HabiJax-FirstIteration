@@ -1,4 +1,5 @@
 import react, { useState, useEffect } from 'react';
+import SurveyCard from './SurveyCard';
 
 const SurveyList = () => {
     const [survey, setSurvey] = useState([]);
@@ -27,18 +28,21 @@ const SurveyList = () => {
                     "X-API-TOKEN": "aMCZkoJ23O0fcIAcLmkWITxXdxJqItLxeDIVRKKP"
                 }
             })
+
         // if(!response.ok) {
         //     throw new Error(`HTTP error! status: ${response.status}`);
         // }
-        
 
-        setSurvey(await response.json().then(json => json.result.elements));
+
+            // if(!response.ok) {
+            //     throw new Error(`HTTP error! status: ${response.status}`);
+            // }
+
+            setSurvey(await response.json().then(json => json.result.elements));
 
         } catch(error) {
             console.error();
         }
-        
-        
     }
 
     const deleteSurvey = async (surveyId:any) => {
@@ -83,15 +87,13 @@ const SurveyList = () => {
             <h1>Surveys</h1>
             <form action="https://unf.co1.qualtrics.com/app/catalog/projects" target="_blank"><button>+ Create New Survey</button></form>
             <ul>
-                {survey.map((data:any) => { // :any temporary fix 
-                    return(<li key={data.id}  /*onLoad={() => getResponse()}*/>
-                        <button onClick={() => deleteSurvey(data.id)}>Delete</button>
-                        {data.name}    {data.id}     {data.auditable}</li>)
+
+                {survey.map((data:any) => { // :any temporary fix
+                    return(<li key={data.id}>
+                    <button onClick={() => deleteSurvey(data.id)}>Delete</button>{data.name}
+                    <SurveyCard name={data.name} /></li>)
                 })}
-                {/* {surveyResponse.map((data:any) => { // :any temporary fix
-                    return(<li key={data.id}  onLoad={() => getResponse(data.id)}>
-                        {data.name}    {data.id}     {data.auditable}</li>)
-                })} */}
+                
             </ul>
 
         </>
