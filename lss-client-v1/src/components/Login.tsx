@@ -1,10 +1,10 @@
 import { useState } from "react";
 import LoginForm from "./LoginForm";
-import "./css/App.css";
+import SurveyDashboard from "./SurveyDashboard";
 
 function Login() {
   const adminLogin = {
-    username: "n01433452@unf.edu",
+    username: "admin",
     password: "pass",
   };
 
@@ -37,9 +37,8 @@ function Login() {
     <div className="App">
       {user.username != "" ? (
         <>
-          <h1>Welcome to the Admin Dashboard!</h1>
-          <button onClick={Logout}>Logout</button>
-          <button>Create Account</button>
+          <h1>Dashboard</h1>
+          <SurveyDashboard></SurveyDashboard>
         </>
       ) : (
         <LoginForm Login={Login} error={error} />
