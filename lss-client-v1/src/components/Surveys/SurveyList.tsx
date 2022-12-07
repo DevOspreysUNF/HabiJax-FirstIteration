@@ -1,5 +1,6 @@
 import react, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import SurveyService from '../../services/SurveyService';
 import SurveyCard from './SurveyCard';
 
 const SurveyList = () => {
@@ -12,30 +13,37 @@ const SurveyList = () => {
         surveys();
         //deleteSurvey();
         getResponse();
-        console.log(survey);
+        // console.log(survey);
         //console.log(surveyResponse);
     }, [])
 
     // this will be called twice in development mode due to StrictMode re-rendering (leave it)
     const surveys = async () => {
-        try {
-            const response = await fetch("https://yul1.qualtrics.com/API/v3/surveys", {
-            "method": "GET",
-                "headers": {
-                    "Content-Type": "application/json",
-                    "X-API-TOKEN": "aMCZkoJ23O0fcIAcLmkWITxXdxJqItLxeDIVRKKP"
+        SurveyService.GetSurveys().then(
+            async (data) => {
+                if(data.status == 200) {
+                    console.log("200 ok")
+                    setSurvey(await data.json().then(json => json.result.elements));
+                } else {
+                    // console.log(data.status);
+                    // 401 = unauthorized
+                    switch(data.status) {
+                        case 401:
+                            console.log("Unauthorized to view surveys");
+                            break;
+                        case 404:
+                            console.log("Surveys not found");
+                            break;
+                        case 500:
+                            console.log("Internal server error");
+                            break;
+                        default:
+                            console.log("There was an retrieving surveys");
+                            break;
+                    }
                 }
-            })
-
-            // if(!response.ok) {
-            //     throw new Error(`HTTP error! status: ${response.status}`);
-            // }
-
-            setSurvey(await response.json().then(json => json.result.elements));
-
-        } catch(error) {
-            console.error();
-        }
+            }
+        );
     }
 
     const deleteSurvey = async (surveyId:any) => {
@@ -90,8 +98,8 @@ const SurveyList = () => {
                                 id={data.id}
                             />
                             <button><a href={`https://unf.co1.qualtrics.com/survey-builder/${data.id}/edit`} target="blank">Edit Survey</a></button>
-                            <button><Link to="/survey-detail">View Details</Link></button>
-                            <button onClick={() => deleteSurvey(data.id)}>Delete Survey</button>
+                            <button><Link to={`/survey-detail/${data.id}`}>View Details</Link></button>
+                            <button onClick={() => deleteSurvey(data.id)} disabled>Delete Survey</button>
                         </span>
                     )
                 })}
