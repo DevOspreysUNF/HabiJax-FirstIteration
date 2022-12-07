@@ -19,7 +19,7 @@ const SurveyCard = (props:any) => {
 
     return(
         <>
-            <h1>{props.name}</h1>
+            <h2>{props.name}</h2>
             <ul> 
                 <li><strong>Last Updated:</strong> {month} {day}, {year}</li>
                 <li><strong>Status:</strong> {status}</li>
