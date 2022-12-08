@@ -1,20 +1,21 @@
 import React, { useEffect } from 'react'
-import { useParams } from 'react-router-dom'
-import QuestionCard from '../QuestionBank/QuestionCard'
+import { useLocation, useParams } from 'react-router-dom'
+import SurveyQuestions from './SurveyQuestions'
 
 const SurveyDetail = (props:any) => {
     const [survey, setSurvey] = React.useState(null)
-    const { surveyId } = useParams()
+    const { surveyId } = useParams();
+    const location = useLocation();
+    const state = location.state;
+    console.log(state)
 
     useEffect(() => {
-        console.log(surveyId)
     }, [surveyId]);
 
     return(
         <>
-            <h1>Survey Detail Page</h1>
-            <p>under construction</p>
-            <QuestionCard id={surveyId} />
+            <h1>Survey Details for <strong>{state}</strong></h1>
+            <SurveyQuestions id={surveyId} />
         </>
     )
 }

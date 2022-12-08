@@ -86,25 +86,22 @@ const SurveyList = () => {
         <>
             <h1>Surveys</h1>
             <form action="https://unf.co1.qualtrics.com/app/catalog/projects" target="_blank"><button>+ Create New Survey</button></form>
-            {/* <ul> */}
-
-                {survey.map((data:any) => { // :any temporary fix
-                    return(
-                        <span key={data.id} className='surveycard'>
-                            <SurveyCard 
-                                name={data.name} 
-                                status={data.isActive}
-                                lastModified={data.lastModified}
-                                id={data.id}
-                            />
-                            <button><a href={`https://unf.co1.qualtrics.com/survey-builder/${data.id}/edit`} target="blank">Edit Survey</a></button>
-                            <button><Link to={`/survey-detail/${data.id}`}>View Details</Link></button>
-                            <button onClick={() => deleteSurvey(data.id)} disabled>Delete Survey</button>
-                        </span>
-                    )
-                })}
-                
-            {/* </ul> */}
+            {survey.map((data:any) => { // :any temporary fix
+                return ( 
+                    <span key={data.id} className='surveycard'>
+                        <SurveyCard 
+                            name={data.name} 
+                            status={data.isActive}
+                            lastModified={data.lastModified}
+                            id={data.id}/>
+                        <button><a href={`https://unf.co1.qualtrics.com/survey-builder/${data.id}/edit`} target="blank">Edit Survey</a></button>
+                        <button>
+                            <Link to={`/survey-detail/${data.id}`} state={data.name}>View Details</Link>
+                        </button>
+                        <button onClick={() => deleteSurvey(data.id)} disabled>Delete Survey</button>
+                    </span>
+                )
+            })}
 
         </>
     );
