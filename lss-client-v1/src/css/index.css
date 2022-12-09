@@ -32,7 +32,7 @@ a {
   text-decoration: inherit;
 }
 a:hover {
-  color: var(--light-blue);
+  color: var(--purple);
 }
 
 body {
@@ -52,6 +52,7 @@ h4,
 h5,
 h6 {
   font-family: 'News Cycle', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: normal;
 }
 
 h1 {
