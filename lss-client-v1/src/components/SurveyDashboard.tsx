@@ -31,32 +31,47 @@ function SurveyDashboard() {
 		}
 	};
 
+	const totalResponses = async () => {
+		try {
+			survey.forEach((survey) => {
+				//Get Survey API call : https://api.qualtrics.com/9d0928392673d-get-survey
+				//count += results.responseSets???
+			});
+		} catch (error) {
+			console.error();
+		}
+	};
+
+	const totalResponsePlaceholder = 67;
+
 	return (
 		<>
-			<div className="row">
-				<div className="col">
-					<div className="card" style={{ width: "18rem" }}>
+			<div className="row text-center">
+				<div className="col-sm-4">
+					<div className="card h-100" style={{ width: "18rem" }}>
 						<div className="card-body">
 							<h5 className="card-title">Total # of Surveys</h5>
 							<p className="card-text">{survey.length}</p>
 						</div>
 					</div>
 				</div>
-				<div className="col">
-					<Card style={{ width: "18rem" }}>
-						<Card.Body>
-							<Card.Title>Total # of responses</Card.Title>
-							<Card.Text>{survey.length}</Card.Text>
-						</Card.Body>
-					</Card>
+				<div className="col-sm-4">
+					<div className="card h-100" style={{ width: "18rem" }}>
+						<div className="card-body">
+							<h5 className="card-title">Total # of Responses</h5>
+							<p className="card-text">{totalResponsePlaceholder}</p>
+						</div>
+					</div>
 				</div>
-				<div className="col">
-					<Card style={{ width: "18rem" }}>
-						<Card.Body>
-							<Card.Title>Avg Responses/Survey</Card.Title>
-							<Card.Text>{survey.length}</Card.Text>
-						</Card.Body>
-					</Card>
+				<div className="col-sm-4">
+					<div className="card h-100" style={{ width: "18rem" }}>
+						<div className="card-body">
+							<h5 className="card-title">Responses/Survey</h5>
+							<p className="card-text">
+								{Math.floor(totalResponsePlaceholder / survey.length)}
+							</p>
+						</div>
+					</div>
 				</div>
 			</div>
 		</>
