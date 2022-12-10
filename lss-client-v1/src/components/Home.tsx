@@ -1,10 +1,10 @@
 import react from "react";
-import SurveyDashboard from "./SurveyDashboard";
+import SurveyDashboard from "./Dashboard/SurveyDashboard";
 
 const Home = () => {
 	return (
 		<>
-			<h1>Dashboard</h1>
+			<h1 style={{ textAlign: "center" }}></h1>
 			<SurveyDashboard></SurveyDashboard>
 		</>
 	);
