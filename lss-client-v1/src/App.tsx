@@ -13,6 +13,7 @@ import SurveyDetail from "./components/Surveys/SurveyDetail";
 import QuestionList from "./components/QuestionBank/QuestionList";
 import ExportData from "./components/dataExport/ExportData";
 import ContactsDashboard from "./components/Contacts/ContactsDashboard";
+import ContactDetail from "./components/Contacts/ContactDetail";
 
 function App() {
 	return (
@@ -25,6 +26,7 @@ function App() {
 					<Route path="/questions" element={<QuestionList />} />
 					<Route path="/account" element={<Login />} />
 					<Route path="/survey-detail/:surveyId" element={<SurveyDetail />} />
+					<Route path="/contact-detail/:contactId" element={<ContactDetail />} />
 					<Route path="/export/:surveyId" element={<ExportData />} />
 					<Route path="/contacts" element={<ContactsDashboard />} />
 				</Routes>
