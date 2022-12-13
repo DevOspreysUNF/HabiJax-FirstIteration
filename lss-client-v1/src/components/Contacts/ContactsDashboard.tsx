@@ -3,14 +3,11 @@ import DataExportService from "../../services/DataExportService";
 import { useParams, useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 
-
 const ContactsDashboard = (props: any) => {
 	const [contact, setContact] = useState([]);
-	
-	
+
 	useEffect(() => {
 		getContacts();
-	
 	}, []);
 
 	const getContacts = async () => {
@@ -32,30 +29,27 @@ const ContactsDashboard = (props: any) => {
 		}
 		return contact;
 	};
-	
-	
+
 	return (
 		<>
 			<h2>Client Dashboard Placeholder</h2>
 
-
 			{contact.map((data: any) => {
 				return (
-					<li key={data.contactId}>First Name: {data.firstName} Last name: {data.lastName} Email: {data.email} Contact ID: {data.contactId}
+					<li key={data.contactId}>
+						First Name: {data.firstName} Last name: {data.lastName} Email:{" "}
+						{data.email} Contact ID: {data.contactId}
 						<button>
-							<Link to={`/contact-detail/${data.contactId}`} state={data.firstName}>
+							<Link
+								to={`/contact-detail/${data.contactId}`}
+								state={data.firstName}
+							>
 								View Details
 							</Link>
 						</button>
 					</li>
-						
-						
-						
-						
-					
 				);
 			})}
-
 		</>
 	);
 };
