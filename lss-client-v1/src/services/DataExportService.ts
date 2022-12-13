@@ -1,5 +1,3 @@
-import { json } from "sequelize/types";
-
 export default {
 	startResponseExport: (surveyId: string) => {
 		var format = {
